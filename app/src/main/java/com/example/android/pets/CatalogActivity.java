@@ -30,6 +30,8 @@ import android.widget.TextView;
 import com.example.android.pets.data.PetContract.PetEntry;
 import com.example.android.pets.data.PetDbHelper;
 
+import java.sql.SQLInput;
+
 /**
  * Displays list of pets that were entered and stored in the app.
  */
@@ -37,7 +39,6 @@ public class CatalogActivity extends AppCompatActivity {
 
     /** Database helper that will provide us access to the database */
     private PetDbHelper mDbHelper;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,10 +53,11 @@ public class CatalogActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        displayDatabaseInfo();
         // To access our database, we instantiate our subclass of SQLiteOpenHelper
         // and pass the context, which is the current activity.
         mDbHelper = new PetDbHelper(this);
+        displayDatabaseInfo();
+
     }
 
     @Override
@@ -148,7 +150,7 @@ public class CatalogActivity extends AppCompatActivity {
         // Create a ContentValues object where column names are the keys,
         // and Toto's pet attributes are the values.
         ContentValues values = new ContentValues();
-        values.put(PetEntry.COLUMN_PET_NAME, "Toto");
+        values.put(PetEntry.COLUMN_PET_NAME,"Toto");
         values.put(PetEntry.COLUMN_PET_BREED, "Terrier");
         values.put(PetEntry.COLUMN_PET_GENDER, PetEntry.GENDER_MALE);
         values.put(PetEntry.COLUMN_PET_WEIGHT, 7);
