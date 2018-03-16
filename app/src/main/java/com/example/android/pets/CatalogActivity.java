@@ -76,6 +76,7 @@ public class CatalogActivity extends AppCompatActivity {
 
         // Define a projection that specifies which columns from the database
         // you will actually use after this query.
+
         String[] projection = {
                 PetEntry._ID,
                 PetEntry.COLUMN_PET_NAME,
@@ -186,6 +187,7 @@ public class CatalogActivity extends AppCompatActivity {
             case R.id.action_delete_all_entries:
                 // Do nothing for now
                 return true;
+
         }
         return super.onOptionsItemSelected(item);
     }
